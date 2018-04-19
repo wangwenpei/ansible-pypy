@@ -5,7 +5,7 @@
   changed_when: false
 
 - name: Run bootstrap.sh
-  script: bootstrap.sh "{{ pypy_version }}" "{{ pypy_arch }}" "{{ pypy_bin_path }}" "{{ pypy_home }}" "{{ pypy_mirror }}"
+  script: bootstrap.sh "{{ pypy_version }}" "{{ pypy_arch }}" "{{ pypy_bin_path }}" "{{ pypy_home }}" "{{ pypy_mirror }}" "{{ pypy_wget_extra }}"
   when: need_pypy is failed or need_pypy != "PyPy"
 
 - name: Check if we need to install pip
