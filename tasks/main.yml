@@ -1,10 +1,11 @@
 - name: Check if we need to install pypy
   shell: "{{ ansible_python_interpreter }} -c 'import platform;print(platform.python_implementation())'"
   register: need_pypy
+  ignore_errors: True
   changed_when: false
 
 - name: Run bootstrap.sh
-  script: bootstrap.sh
+  script: bootstrap.sh "{{ pypy_version }}" "{{ pypy_arch }}" "{{ pypy_bin_path }}" "{{ pypy_home }}" "{{ pypy_mirror }}"
   when: need_pypy is failed or need_pypy != "PyPy"
 
 - name: Check if we need to install pip
@@ -26,5 +27,5 @@
   when: need_pip is failed
 
 - name: Install pip launcher
-  copy: src=runner dest=~/.bin/pip mode=0755
+  copy: src=runner dest={{ pypy_bin_path }}/pip mode=0755
   when: need_pip is failed
