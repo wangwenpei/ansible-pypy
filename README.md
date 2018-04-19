@@ -24,6 +24,13 @@ pypy_wget_extra:
 
 ```
 
+Note
+----
+
+Currently, we only support user install python3.5+, python2.7+ should be work.
+Because `get-pip.py` is quite different for other python version.
+
+
 
 Example Playbook
 ----------------

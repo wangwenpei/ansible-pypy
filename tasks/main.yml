@@ -15,15 +15,15 @@
   changed_when: false
 
 - name: Copy get-pip.py
-  copy: src=get-pip.py dest=~/get-pip.py
+  copy: src=get-pip.py dest={{ pypy_home }}/get-pip.py
   when: need_pip is failed
 
 - name: Install pip
-  shell: "{{ pypy_bin_path }}/python  ~/get-pip.py"
+  shell: "{{ pypy_bin_path }}/python  {{ pypy_home }}/get-pip.py"
   when: need_pip is failed
 
 - name: Remove get-pip.py
-  file: path=~/get-pip.py state=absent
+  file: path={{ pypy_home }}/get-pip.py state=absent
   when: need_pip is failed
 
 - name: Install pip launcher
