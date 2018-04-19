@@ -27,6 +27,6 @@ cat > $PYPY_BIN_PATH/python <<EOF
 LD_LIBRARY_PATH=$PYPY_HOME/lib:/usr/lib64:/lib64:/usr/lib:/lib:$LD_LIBRARY_PATH exec $PYPY_HOME/bin/pypy "\$@"
 EOF
 
-chmod +x $PYPY_BIN_PATH
+chmod +x $PYPY_BIN_PATH/python
 $PYPY_BIN_PATH/python --version
 
