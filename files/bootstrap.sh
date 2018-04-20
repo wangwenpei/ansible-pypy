@@ -22,10 +22,7 @@ mv -n pypy$PYPY_VERSION-$PYPY_ARCH $PYPY_HOME
 
 test -d $PYPY_BIN_PATH || mkdir -p $PYPY_BIN_PATH
 
-cat > $PYPY_BIN_PATH/python <<EOF
-#!/usr/bin/env bash
-LD_LIBRARY_PATH=$PYPY_HOME/lib:/usr/lib64:/lib64:/usr/lib:/lib:$LD_LIBRARY_PATH exec $PYPY_HOME/bin/pypy "\$@"
-EOF
+ln -snf $PYPY_HOME/bin/pypy  $PYPY_BIN_PATH/python
 
 chmod +x $PYPY_BIN_PATH/python
 $PYPY_BIN_PATH/python --version
