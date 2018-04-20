@@ -27,5 +27,10 @@
   when: need_pip is failed
 
 - name: Install pip launcher
-  copy: src=runner dest={{ pypy_bin_path }}/pip mode=0755
+  shell: "ln -snf {{pypy_home}}/bin/pip {{ pypy_bin_path }}/pip"
   when: need_pip is failed
+
+- name: Install docker-py@pip
+  shell: "{{ pypy_bin_path }}/pip install docker-py"
+  register: pip_docker_py
+  when: pypy_pip_packages.docker_py
