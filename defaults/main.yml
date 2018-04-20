@@ -9,7 +9,8 @@ pypy_mirror: https://bitbucket.org/squeaky/portable-pypy/downloads
 pypy_wget_extra:
 pypy_pip_packages:
   docker_py: True
-  ansible: True
+  docker_compose: True
+  ansible: False
 
 
 

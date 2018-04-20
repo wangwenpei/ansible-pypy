@@ -35,6 +35,11 @@
   register: pip_docker_py
   when: pypy_pip_packages.docker_py
 
+- name: Install docker-compose@pip
+  shell: "{{ pypy_bin_path }}/pip install docker-compose"
+  register: pip_docker_compose
+  when: pypy_pip_packages.docker_compose
+
 - name: Install ansible@pip
   shell: "{{ pypy_bin_path }}/pip install ansible"
   register: pip_ansible
