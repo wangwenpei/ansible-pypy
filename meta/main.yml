@@ -2,7 +2,7 @@ galaxy_info:
   author: wangwenpei
   description: Install Portable PyPy for Linux.
   company: 1024.engineer
-  license: MIT
+  license: GPLv3
   min_ansible_version: 2.0
   platforms:
   - name: EL
