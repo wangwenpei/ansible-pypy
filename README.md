@@ -15,8 +15,8 @@ Role Variables
 --------------
 
 ```
-pypy_bin_path: /usr/local/bin
-pypy_home: /usr/local/portable-pypy
+pypy_bin_path: /opt/local/bin
+pypy_home: /opt/local/portable-pypy
 pypy_version: 3.5-5.10.1
 pypy_arch: linux_x86_64-portable
 pypy_mirror: https://bitbucket.org/squeaky/portable-pypy/downloads
