@@ -15,12 +15,13 @@ Role Variables
 --------------
 
 ```
-pypy_bin_path: ~/.bin
-pypy_home: ~/.portable-pypy
+pypy_bin_path: /usr/local/bin
+pypy_home: /usr/local/portable-pypy
 pypy_version: 3.5-5.10.1
 pypy_arch: linux_x86_64-portable
 pypy_mirror: https://bitbucket.org/squeaky/portable-pypy/downloads
 pypy_wget_extra:
+pypy_bz2_md5sum: b7a900da2dd2af05131b0560698c20ec
 
 ```
 
