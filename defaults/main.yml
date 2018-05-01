@@ -1,4 +1,6 @@
 ---
+ansible_python_interpreter: "/usr/bin/env python"
+
 pypy_bin_path: /opt/local/bin
 pypy_home: /opt/local/portable-pypy
 pypy_version: 3.5-5.10.1
