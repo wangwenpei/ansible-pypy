@@ -10,6 +10,6 @@ pypy_bz2_md5sum: b7a900da2dd2af05131b0560698c20ec
 pypy_bz2_tmp: /tmp
 pypy_wget_extra:
 pypy_pip_packages:
-  docker_py: True
+  docker_py: False
   docker_compose: True
   ansible: False
