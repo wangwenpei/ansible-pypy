@@ -12,8 +12,8 @@ PYPY_MIRROR=$5
 PYPY_WGET_EXTRA=$6
 PYPY_BZ2_TMP=$7
 
-test -d $PYPY_HOME || mkdir $PYPY_HOME
-test -d $PYPY_BZ2_TMP || mkdir $PYPY_BZ2_TMP
+test -d $PYPY_HOME || mkdir -p $PYPY_HOME
+test -d $PYPY_BZ2_TMP || mkdir -p $PYPY_BZ2_TMP
 
 cd $PYPY_BZ2_TMP && wget $PYPY_WGET_EXTRA $PYPY_MIRROR/pypy$PYPY_VERSION-$PYPY_ARCH.tar.bz2
 tar -xjf $7/pypy$PYPY_VERSION-$PYPY_ARCH.tar.bz2
