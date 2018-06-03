@@ -52,25 +52,30 @@
   shell: "{{ pypy_bin_path }}/python  {{ pypy_home }}/get-pip.py"
   when: need_pip is failed
 
-- name: Remove get-pip.py
-  file: path={{ pypy_home }}/get-pip.py state=absent
-  when: need_pip is failed
-
-- name: Install pip launcher
-  shell: "ln -snf {{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/pip {{ pypy_bin_path }}/pip"
-  when: need_pip is failed
-
 - name: Install docker-py@pip
-  shell: "{{ pypy_bin_path }}/pip install docker-py"
+  shell: "{{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/pip install docker-py"
   register: pip_docker_py
   when: pypy_pip_packages.docker_py
 
 - name: Install docker-compose@pip
-  shell: "{{ pypy_bin_path }}/pip install docker-compose"
+  shell: "{{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/pip install docker-compose"
   register: pip_docker_compose
   when: pypy_pip_packages.docker_compose
 
 - name: Install ansible@pip
-  shell: "{{ pypy_bin_path }}/pip install ansible"
+  shell: "{{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/pip install ansible"
   register: pip_ansible
   when: pypy_pip_packages.ansible
+
+- name: Link pip launcher
+  shell: "ln -snf {{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/pip {{ pypy_bin_path }}/pip"
+  when: need_pip is failed
+
+- name: Link docker-compose launcher
+  shell: "ln -snf {{ pypy_home }}/pypy{{ pypy_version }}-{{ pypy_arch }}/bin/docker-compose {{ pypy_bin_path }}/docker-compose"
+  when: need_pip is failed
+
+- name: Remove get-pip.py
+  file: path={{ pypy_home }}/get-pip.py state=absent
+  when: need_pip is failed
+
